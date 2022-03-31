@@ -7,8 +7,13 @@
 
 <div class="history">
     <ul *ngIf="indicador?.history;">
-        <li *ngFor="let i of indicador.history">
-            {{i.fecha | date : 'shortDate'}} - {{i.valor | currency}}
+        <li *ngFor="let i of indicador.history" class="history__event">
+            <span>
+                {{i.fecha | date : 'shortDate'}} 
+            </span>
+            <span>
+                {{i.valor | currency}}
+            </span>
         </li>
     </ul>
 </div>
