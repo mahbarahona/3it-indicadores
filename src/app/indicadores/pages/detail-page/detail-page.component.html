@@ -1,8 +1,5 @@
 
-<section class="indicador-header">
-    <h2 class="indicador-header__codigo">{{tipo | replaceChar: '_'}}</h2>
-</section>
-
+<app-indicadores-header [title]="indicador?.codigo"></app-indicadores-header>
 
 <section class="indicador-card" *ngIf="indicador">
 

@@ -1,8 +1,5 @@
 
-<section class="indicador-header" *ngIf="indicador">
-    <h2 class="indicador-header__codigo">{{indicador.codigo | replaceChar: '_'}}</h2>
-    <p class="indicador-header__nombre">monto en {{indicador.unidad_medida | lowercase}}</p>
-</section>
+<app-indicadores-header  [title]="indicador?.codigo"></app-indicadores-header>
 
 <div class="history">
     <ul *ngIf="indicador?.history;">

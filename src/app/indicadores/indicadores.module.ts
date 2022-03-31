@@ -10,13 +10,15 @@ import { NgChartsModule } from 'ng2-charts';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { SharedModule } from '../shared/shared.module';
+import { IndicadoresHeaderComponent } from './components/indicadores-header/indicadores-header.component';
 
 @NgModule({
   declarations: [
     HistoryPageComponent,
     DetailPageComponent,
     ListPageComponent,
-    LineChartComponent
+    LineChartComponent,
+    IndicadoresHeaderComponent
   ],
   imports: [
     CommonModule,
