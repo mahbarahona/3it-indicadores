@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http/http.service';
+import { UiService } from 'src/app/ui/ui.service';
 import { IndicadoresStateService } from '../state/indicadores-state.service';
 
 @Injectable({
@@ -8,11 +9,11 @@ import { IndicadoresStateService } from '../state/indicadores-state.service';
 })
 export class IndicadoresAdapterService {
 
-  constructor(private state:IndicadoresStateService,private http:HttpService) { }
+  constructor(private state:IndicadoresStateService,private http:HttpService,private ui:UiService) { }
 
   getIndicadores(){
     if(this.state.canGetIndicadores()){
-      this.state.setLoading(true)
+      this.ui.setLoading(true)
       this.getIndicadoresMock()
 
       // this.getIndicadoresAPI()
@@ -41,7 +42,7 @@ export class IndicadoresAdapterService {
     )
     .subscribe( indicadores => {
       this.state.setIndicadores(indicadores)
-      this.state.setLoading(false)
+      this.ui.setLoading(false)
     }) 
 
   }
@@ -49,7 +50,7 @@ export class IndicadoresAdapterService {
 
 
   getIndicadoresHistory(tipo:string){
-    this.state.setLoading(true)
+    this.ui.setLoading(true)
     // return this.getIndicadoresHistoryMock(tipo);
     return this.getIndicadoresHistoryAPI(tipo);
 
@@ -84,7 +85,7 @@ export class IndicadoresAdapterService {
         indicador.valor = indicador.history[indicador.history.length - 1].valor
 
         this.state.setHistory(indicador.codigo,indicador.history)
-        this.state.setLoading(false)
+        this.ui.setLoading(false)
         return indicador
 
       })

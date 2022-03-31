@@ -2,13 +2,13 @@
 <section class="indicador-header">
     <h2 class="indicador-header__codigo">{{tipo | replaceChar: '_'}}</h2>
 </section>
-<mat-progress-bar mode="indeterminate" *ngIf="state.isLoading | async"></mat-progress-bar>
+
 
 <section class="indicador-card" *ngIf="indicador">
 
     <p class="indicador-card__nombre">{{indicador.nombre}}</p>
-    <h2 class="indicador-card__valor">{{indicador.valor | currency  }}</h2>
-    <p class="indicador-card__medida">monto en {{indicador.unidad_medida}}</p>
+    <h2 class="indicador-card__valor">{{indicador.valor   }}</h2>
+    <p class="indicador-card__medida">monto en {{indicador.unidad_medida | lowercase}}</p>
     <p class="indicador-card__fecha">valor actualizado al {{indicador.fecha | date :'shortDate'}}</p>
 </section>
 <section >

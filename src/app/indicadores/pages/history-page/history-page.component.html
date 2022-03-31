@@ -1,9 +1,8 @@
 
 <section class="indicador-header" *ngIf="indicador">
     <h2 class="indicador-header__codigo">{{indicador.codigo | replaceChar: '_'}}</h2>
-    <p class="indicador-header__nombre">{{indicador.nombre}}</p>
+    <p class="indicador-header__nombre">monto en {{indicador.unidad_medida | lowercase}}</p>
 </section>
-<mat-progress-bar mode="indeterminate" *ngIf="state.isLoading | async"></mat-progress-bar>
 
 <div class="history">
     <ul *ngIf="indicador?.history;">
@@ -12,7 +11,7 @@
                 {{i.fecha | date : 'shortDate'}} 
             </span>
             <span>
-                {{i.valor | currency}}
+                {{i.valor | number }}
             </span>
         </li>
     </ul>

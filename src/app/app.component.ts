@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiService } from './ui/ui.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'indicadores';
+  constructor(public ui:UiService){}
 }
