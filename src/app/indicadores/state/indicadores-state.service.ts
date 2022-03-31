@@ -16,8 +16,7 @@ export class IndicadoresStateService {
 
     let indicador = this._indicadores.getValue().find(( item:any) => item.codigo === tipo )     
     indicador.chart = indicador.history
-    console.log('state', {indicador})
-      return of(indicador)
+    return of(indicador)
   }
 
   setIndicadores(indicadores:any){
@@ -57,9 +56,12 @@ export class IndicadoresStateService {
     return this._indicadores.value.length == 0
   }
 
+  canGetIndicadores(){
+    return this.isEmpty() || this._indicadores.value.length < 2
+  }
+
   indicadorHaveHistory(tipo:string){
     const indicador = this._indicadores.value.find((indicador:any) => indicador.codigo === tipo )
-    console.log('have history', indicador?.history && indicador.history.length > 0)
     return !!indicador?.history && indicador.history.length > 0
   }
 }

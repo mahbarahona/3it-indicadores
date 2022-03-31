@@ -32,6 +32,10 @@ li{
 .indicador-card{
     padding: 1rem;
 }
+.indicador-card__title{
+    text-transform: uppercase;
+
+}
 .indicador-card__valor{
     padding: 1rem 0;
     font-size: 3rem;

@@ -1,9 +1,10 @@
 
 <section class="indicador-card" *ngIf="indicador">
 
-    <h2 class="indicador-card__valor">{{indicador.valor | currency:'CLP' }}</h2>
+    <h2 class="indicador-card__title">{{indicador.codigo  }}</h2>
     <p class="indicador-card__nombre">{{indicador.nombre}}</p>
     <p class="indicador-card__medida">{{indicador.unidad_medida}}</p>
+    <h2 class="indicador-card__valor">{{indicador.valor | currency:'CLP' }}</h2>
     <p class="indicador-card__fecha">valor actualizado al {{indicador.fecha | date :'shortDate'}}</p>
 </section>
 <section >

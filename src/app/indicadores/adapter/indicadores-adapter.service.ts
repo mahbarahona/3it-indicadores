@@ -11,14 +11,12 @@ export class IndicadoresAdapterService {
   constructor(private state:IndicadoresStateService,private http:HttpService) { }
 
   getIndicadores(){
-    if(this.state.isEmpty()){
+    if(this.state.canGetIndicadores()){
       this.getIndicadoresMock()
       // this.getIndicadoresAPI()
     }
   }
-  haveIndicadores(){
-    return this.state.isEmpty()
-  }
+
   indicadorHaveHistory(tipo:string){
     return this.state.indicadorHaveHistory(tipo)
   }
@@ -48,10 +46,11 @@ export class IndicadoresAdapterService {
 
 
   getIndicadoresHistory(tipo:string){
-    //check if have history
-  
-    return this.getIndicadoresHistoryMock(tipo);
-    // return this.getIndicadoresHistoryAPI(tipo)
+    
+    // return this.getIndicadoresHistoryMock(tipo);
+    return this.getIndicadoresHistoryAPI(tipo);
+
+    
   }
   private getIndicadoresHistoryMock(tipo:string){
     const url = `assets/mock/get_indicador.json`
@@ -70,17 +69,18 @@ export class IndicadoresAdapterService {
     )
   } 
   private getIndicadoresHistoryAPI(tipo:string){
+
     const url = `https://mindicador.cl/api/${tipo}`
-    this.http.get(url)
+    return this.http.get(url)
     .pipe(
       map( (indicador:any) =>  {
 
-        const {codigo, history} = indicador
-        this.state.setHistory(codigo,history)
-
-
-        indicador.chart = indicador.serie.slice(0,10)
+        indicador.chart = indicador.serie.reverse().slice(0,10)
         indicador.history = indicador.serie
+        indicador.fecha = indicador.history[indicador.history.length - 1].fecha
+        indicador.valor = indicador.history[indicador.history.length - 1].valor
+
+        this.state.setHistory(indicador.codigo,indicador.history)
         return indicador
 
       })
