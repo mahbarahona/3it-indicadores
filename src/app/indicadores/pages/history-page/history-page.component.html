@@ -1,1 +1,12 @@
-<p>history-page works!</p>
+<ng-container *ngIf="indicador">
+    <h1>{{indicador.tipo}}</h1>
+    <ul *ngIf="indicador.history; else nohistory">
+        <li *ngFor="let i of indicador.history">
+            {{i.fecha | date : 'shortDate'}} - {{i.valor | currency}}
+        </li>
+    </ul>
+    <ng-template #nohistory>
+        <p>no results</p>
+    </ng-template>
+    
+</ng-container>

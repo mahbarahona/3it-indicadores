@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IndicadoresActionsService } from '../../actions/indicadores-actions.service';
+import { IndicadoresStateService } from '../../state/indicadores-state.service';
 
 @Component({
   selector: 'app-list-page',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public state:IndicadoresStateService,private actions:IndicadoresActionsService) { }
 
   ngOnInit(): void {
+    this.actions.getIndicadores()
   }
 
 }

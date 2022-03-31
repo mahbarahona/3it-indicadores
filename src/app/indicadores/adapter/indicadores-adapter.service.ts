@@ -34,7 +34,7 @@ export class IndicadoresAdapterService {
 
   }
   private getIndicadoresMock(){
-    const url = `http://localhost:4300/assets/mock/get_indicadores.json`
+    const url = `assets/mock/get_indicadores.json`
     this.http.get(url)
     .pipe(
 
@@ -54,7 +54,7 @@ export class IndicadoresAdapterService {
     // return this.getIndicadoresHistoryAPI(tipo)
   }
   private getIndicadoresHistoryMock(tipo:string){
-    const url = `http://localhost:4300/assets/mock/get_indicador.json`
+    const url = `assets/mock/get_indicador.json`
     return this.http.get(url)
     .pipe(
       map( (indicador:any) => {

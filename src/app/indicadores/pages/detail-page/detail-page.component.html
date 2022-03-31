@@ -1,1 +1,6 @@
-<p>detail-page works!</p>
+<ng-container *ngIf="indicador$ | async as indicador">
+    <h1>{{indicador.valor | currency}}</h1>
+    <p>Nombre: {{indicador.nombre}}</p>
+    <p>Fecha: {{indicador.fecha | date :'shortDate'}}</p>
+    <p>Unidad de medida: {{indicador.unidad_medida}}</p>
+</ng-container>
