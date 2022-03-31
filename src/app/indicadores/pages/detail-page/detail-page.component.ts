@@ -33,7 +33,7 @@ export class DetailPageComponent implements OnInit {
         this.chart = {
           data:indicador.history.map( (i:any) => i.valor),
           labels:indicador.history.map( (i:any) => new Date(i.fecha).toDateString()),
-          legend:'valor'
+          legend:indicador.unidad_medida
         }
       }
     ) 
