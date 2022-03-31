@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, find, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,12 @@ export class IndicadoresStateService {
   constructor() {
    }
 
-  getIndicador(indicadorName:string){
-      return of(this._indicadores.getValue()
-                    .find((item:any) => item.codigo === indicadorName ) )
+  getIndicador(tipo:string){
+
+    let indicador = this._indicadores.getValue().find(( item:any) => item.codigo === tipo )     
+    indicador.chart = indicador.history
+    console.log('state', {indicador})
+      return of(indicador)
   }
 
   setIndicadores(indicadores:any){

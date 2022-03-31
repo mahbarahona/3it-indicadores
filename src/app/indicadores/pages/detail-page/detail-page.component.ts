@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { concatMap, filter, map, Observable } from 'rxjs';
+import { IndicadoresActionsService } from '../../actions/indicadores-actions.service';
 import { IndicadoresStateService } from '../../state/indicadores-state.service';
 
 @Component({
@@ -10,18 +11,37 @@ import { IndicadoresStateService } from '../../state/indicadores-state.service';
 })
 export class DetailPageComponent implements OnInit {
 
-  indicador$:Observable<any> = new Observable()
-  constructor(private route:ActivatedRoute, private state:IndicadoresStateService) {
+  
+
+  chart:any
+  indicador:any
+
+
+
+  constructor(private route:ActivatedRoute, public state:IndicadoresStateService,private actions:IndicadoresActionsService) {
    }
 
   ngOnInit(): void {
     
-    this.indicador$ = this.route.paramMap
+    this.route.paramMap
     .pipe(
       map( params => params.get('tipo') || ''),
       filter( tipo => tipo !== ''),
-      concatMap( tipo =>{ return this.state.getIndicador(tipo) })
-    )
-      
+      concatMap( tipo =>{ return this.actions.getIndicadoresHistory(tipo) })
+      )
+    .subscribe( indicador =>{
+
+       this.indicador = indicador
+
+        this.chart = {
+          data:indicador.history.map( (i:any) => i.valor).reverse(),
+          labels:indicador.history.map( (i:any) => new Date(i.fecha).toDateString()).reverse(),
+          legend:'valor'
+        }
+      }
+    ) 
+
   }
+
+
 }

@@ -10,6 +10,11 @@ const routes: Routes = [
     path:'',
     redirectTo:'i',
     pathMatch:'full'
+  },
+  {
+    path:'**',
+    redirectTo:'i',
+    pathMatch:'full'
   }
 ];
 

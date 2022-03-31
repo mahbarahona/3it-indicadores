@@ -60,7 +60,7 @@ export class IndicadoresAdapterService {
       map( (indicador:any) => {
         return {
           tipo,
-          history: indicador.serie
+          history: indicador.serie.slice(0,10)
         }
       })
     )

@@ -1,6 +1,11 @@
-<ng-container *ngIf="indicador$ | async as indicador">
+<ng-container *ngIf="indicador">
     <h1>{{indicador.valor | currency}}</h1>
     <p>Nombre: {{indicador.nombre}}</p>
     <p>Fecha: {{indicador.fecha | date :'shortDate'}}</p>
     <p>Unidad de medida: {{indicador.unidad_medida}}</p>
+
+    <section >
+        <app-line-chart *ngIf="chart" [data]="chart" > </app-line-chart>
+    </section>
+
 </ng-container>
