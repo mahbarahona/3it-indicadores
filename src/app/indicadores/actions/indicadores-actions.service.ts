@@ -10,6 +10,7 @@ export class IndicadoresActionsService {
   constructor(private adapter:IndicadoresAdapterService) { }
 
   getIndicadores(){
+    
     this.adapter.getIndicadores()
   }
   

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { concatMap, filter, map, Observable } from 'rxjs';
+import { concatMap, filter, map, Observable, tap } from 'rxjs';
 import { IndicadoresActionsService } from '../../actions/indicadores-actions.service';
 import { IndicadoresStateService } from '../../state/indicadores-state.service';
 
@@ -11,12 +11,9 @@ import { IndicadoresStateService } from '../../state/indicadores-state.service';
 })
 export class DetailPageComponent implements OnInit {
 
-  
-
   chart:any
   indicador:any
-
-
+  tipo:string = ''
 
   constructor(private route:ActivatedRoute, public state:IndicadoresStateService,private actions:IndicadoresActionsService) {
    }
@@ -27,12 +24,12 @@ export class DetailPageComponent implements OnInit {
     .pipe(
       map( params => params.get('tipo') || ''),
       filter( tipo => tipo !== ''),
+      tap( tipo => this.tipo = tipo),
       concatMap( tipo =>{ return this.actions.getIndicadoresHistory(tipo) })
       )
     .subscribe( indicador =>{
 
        this.indicador = indicador
-      console.log('detail',{indicador})
         this.chart = {
           data:indicador.history.map( (i:any) => i.valor),
           labels:indicador.history.map( (i:any) => new Date(i.fecha).toDateString()),

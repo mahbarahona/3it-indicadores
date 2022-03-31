@@ -3,15 +3,14 @@
     <h2 class="indicador-header__codigo">{{indicador.codigo}}</h2>
     <p class="indicador-header__nombre">{{indicador.nombre}}</p>
 </section>
+<mat-progress-bar mode="indeterminate" *ngIf="state.isLoading | async"></mat-progress-bar>
+
 <div class="history">
-    <ul *ngIf="indicador?.history; else nohistory">
+    <ul *ngIf="indicador?.history;">
         <li *ngFor="let i of indicador.history">
             {{i.fecha | date : 'shortDate'}} - {{i.valor | currency}}
         </li>
     </ul>
-    <ng-template #nohistory>
-        <p>no results</p>
-    </ng-template>
 </div>
 
 

@@ -12,7 +12,9 @@ export class IndicadoresAdapterService {
 
   getIndicadores(){
     if(this.state.canGetIndicadores()){
+      this.state.setLoading(true)
       this.getIndicadoresMock()
+
       // this.getIndicadoresAPI()
     }
   }
@@ -39,6 +41,7 @@ export class IndicadoresAdapterService {
     )
     .subscribe( indicadores => {
       this.state.setIndicadores(indicadores)
+      this.state.setLoading(false)
     }) 
 
   }
@@ -46,7 +49,7 @@ export class IndicadoresAdapterService {
 
 
   getIndicadoresHistory(tipo:string){
-    
+    this.state.setLoading(true)
     // return this.getIndicadoresHistoryMock(tipo);
     return this.getIndicadoresHistoryAPI(tipo);
 
@@ -81,6 +84,7 @@ export class IndicadoresAdapterService {
         indicador.valor = indicador.history[indicador.history.length - 1].valor
 
         this.state.setHistory(indicador.codigo,indicador.history)
+        this.state.setLoading(false)
         return indicador
 
       })

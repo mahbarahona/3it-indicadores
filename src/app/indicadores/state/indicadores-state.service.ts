@@ -8,10 +8,15 @@ export class IndicadoresStateService {
 
   private _indicadores = new BehaviorSubject<any>([])
   indicadores = this._indicadores.asObservable()
+  private _isLoading = new BehaviorSubject<any>(false)
+  isLoading = this._isLoading.asObservable()
 
   constructor() {
    }
-
+  
+  setLoading(newState:boolean){
+    this._isLoading.next(newState)
+  }
   getIndicador(tipo:string){
 
     let indicador = this._indicadores.getValue().find(( item:any) => item.codigo === tipo )     

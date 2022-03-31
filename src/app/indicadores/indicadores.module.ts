@@ -8,6 +8,7 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { LineChartComponent } from './components/graphs/line-chart/line-chart.component';
 import { NgChartsModule } from 'ng2-charts';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgChartsModule } from 'ng2-charts';
   imports: [
     CommonModule,
     IndicadoresRoutingModule,
-    NgChartsModule 
+    NgChartsModule ,
+    MatProgressBarModule
   ]
 })
 export class IndicadoresModule { }

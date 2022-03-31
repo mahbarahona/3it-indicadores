@@ -4,6 +4,8 @@
 </section>
 
 
+<mat-progress-bar mode="indeterminate" *ngIf="state.isLoading | async"></mat-progress-bar>
+
 <ul class="list"  *ngIf="state.indicadores | async   as indicadores">
     <li class="indicador" *ngFor="let indicador of indicadores  ">
         <div>
