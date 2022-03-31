@@ -1,3 +1,5 @@
 <section class="indicadores-header">
     <h2 class="indicador-header__codigo ">{{title | replaceChar: '_'}}</h2>
+    <p class="indicadores-header__medida" *ngIf="medida">monto en {{medida | lowercase}}</p>
+
 </section>

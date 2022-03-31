@@ -37,11 +37,16 @@ li{
 .indicadores-header{
     // background-color: lightcoral;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    // align-items: center;
     padding: 1rem;
     // min-height: 5vh;
     box-shadow: 0px 0px 3px rgba($color: #000000, $alpha: 0.1);
     
+}
+.indicadores-header__medida{
+    font-size: .8rem;
+    margin: 0;
 }
 .indicador-card{
     padding: 1rem;
@@ -81,7 +86,7 @@ li{
     font-size: .8rem;
 }
 
-.history{
+.list{
     overflow-y: scroll;
     scroll-behavior: smooth;
     height: 85vh;

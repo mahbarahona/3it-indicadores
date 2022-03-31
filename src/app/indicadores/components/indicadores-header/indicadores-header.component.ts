@@ -9,6 +9,7 @@ export class IndicadoresHeaderComponent implements OnInit {
 
 
   @Input('title') title!:string
+  @Input('medida') medida!:string
   constructor() { }
 
   ngOnInit(): void {

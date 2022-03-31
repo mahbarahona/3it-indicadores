@@ -1,12 +1,12 @@
 
-<app-indicadores-header [title]="indicador?.codigo"></app-indicadores-header>
+<app-indicadores-header [title]="indicador?.codigo" ></app-indicadores-header>
 
 <section class="indicador-card" *ngIf="indicador">
 
     <p class="indicador-card__nombre">{{indicador.nombre}}</p>
     <h2 class="indicador-card__valor">{{indicador.valor  | number  }}</h2>
     <p class="indicador-card__medida">monto en {{indicador.unidad_medida | lowercase}}</p>
-    <p class="indicador-card__fecha">valor actualizado al {{indicador.fecha | date :'shortDate'}}</p>
+    <p class="indicador-card__fecha">última actualización: {{indicador.fecha | date :'shortDate'}}</p>
 </section>
 <section >
     <app-line-chart *ngIf="chart" [data]="chart" > </app-line-chart>
