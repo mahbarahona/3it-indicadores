@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { IndicadoresAdapterService } from '../adapter/indicadores-adapter.service';
 
 @Injectable({
@@ -14,5 +15,6 @@ export class IndicadoresActionsService {
   
   getIndicadoresHistory(tipo:string){
     return this.adapter.getIndicadoresHistory(tipo)
+   
   }
 }

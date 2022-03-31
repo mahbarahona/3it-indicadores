@@ -58,10 +58,14 @@ export class IndicadoresAdapterService {
     return this.http.get(url)
     .pipe(
       map( (indicador:any) => {
-        return {
-          tipo,
-          history: indicador.serie.slice(0,10)
-        }
+        
+        indicador.chart = indicador.serie.reverse().slice(0,10)
+        indicador.history = indicador.serie
+        indicador.fecha = indicador.history[indicador.history.length - 1].fecha
+        indicador.valor = indicador.history[indicador.history.length - 1].valor
+
+        this.state.setHistory(indicador.codigo,indicador.history)
+        return indicador
       })
     )
   } 
@@ -75,10 +79,10 @@ export class IndicadoresAdapterService {
         this.state.setHistory(codigo,history)
 
 
-        return {
-          tipo: indicador.codigo,
-          history: indicador.serie
-        }
+        indicador.chart = indicador.serie.slice(0,10)
+        indicador.history = indicador.serie
+        return indicador
+
       })
     )
   }

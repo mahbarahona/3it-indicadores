@@ -20,7 +20,6 @@ export class LineChartComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log('line chart',this.data)
     
   this.barChartOptions = {
     scaleShowVerticalLines: false,

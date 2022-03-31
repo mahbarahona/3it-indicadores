@@ -33,11 +33,13 @@ export class IndicadoresStateService {
   setHistory(tipo:string,history:any){
     const currentIndicadores = this._indicadores.value
     let currentTipo = currentIndicadores.find( (item:any) => item.codigo === tipo)
-    
+
+
     const newState = {
       ...currentTipo,
       history
     }
+
 
     const newList = currentIndicadores.filter( (item:any) => item.codigo !== tipo )
 

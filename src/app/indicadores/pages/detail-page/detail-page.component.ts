@@ -32,10 +32,10 @@ export class DetailPageComponent implements OnInit {
     .subscribe( indicador =>{
 
        this.indicador = indicador
-
+      console.log('detail',{indicador})
         this.chart = {
-          data:indicador.history.map( (i:any) => i.valor).reverse(),
-          labels:indicador.history.map( (i:any) => new Date(i.fecha).toDateString()).reverse(),
+          data:indicador.history.map( (i:any) => i.valor),
+          labels:indicador.history.map( (i:any) => new Date(i.fecha).toDateString()),
           legend:'valor'
         }
       }

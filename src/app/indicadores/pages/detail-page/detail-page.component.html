@@ -1,11 +1,11 @@
-<ng-container *ngIf="indicador">
-    <h1>{{indicador.valor | currency}}</h1>
-    <p>Nombre: {{indicador.nombre}}</p>
-    <p>Fecha: {{indicador.fecha | date :'shortDate'}}</p>
-    <p>Unidad de medida: {{indicador.unidad_medida}}</p>
 
-    <section >
-        <app-line-chart *ngIf="chart" [data]="chart" > </app-line-chart>
-    </section>
+<section class="indicador" *ngIf="indicador">
 
-</ng-container>
+    <h2 class="indicador__valor">{{indicador.valor | currency:'CLP' }}</h2>
+    <p class="indicador__nombre">{{indicador.nombre}}</p>
+    <p class="indicador__medida">{{indicador.unidad_medida}}</p>
+    <p class="indicador__fecha">valor actualizado al {{indicador.fecha | date :'shortDate'}}</p>
+</section>
+<section >
+    <app-line-chart *ngIf="chart" [data]="chart" > </app-line-chart>
+</section>
