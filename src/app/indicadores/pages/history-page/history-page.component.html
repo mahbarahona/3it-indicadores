@@ -1,6 +1,6 @@
 
 <section class="indicador-header" *ngIf="indicador">
-    <h2 class="indicador-header__codigo">{{indicador.codigo}}</h2>
+    <h2 class="indicador-header__codigo">{{indicador.codigo | replaceChar: '_'}}</h2>
     <p class="indicador-header__nombre">{{indicador.nombre}}</p>
 </section>
 <mat-progress-bar mode="indeterminate" *ngIf="state.isLoading | async"></mat-progress-bar>

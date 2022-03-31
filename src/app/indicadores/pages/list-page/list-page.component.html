@@ -9,7 +9,7 @@
 <ul class="list"  *ngIf="state.indicadores | async   as indicadores">
     <li class="indicador" *ngFor="let indicador of indicadores  ">
         <div>
-            <a [routerLink]="['history',indicador.codigo]" class="indicador-card__title">{{indicador.codigo}}</a>
+            <a [routerLink]="['history',indicador.codigo]" class="indicador-card__title">{{indicador.codigo | replaceChar: '_'}}</a>
             <p class="indicador-card__nombre">{{indicador.unidad_medida}}</p>
         </div>
         <a [routerLink]="['tipo',indicador.codigo]"><span class="bi bi-info-circle-fill"></span></a>

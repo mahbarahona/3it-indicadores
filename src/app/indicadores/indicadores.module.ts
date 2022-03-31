@@ -9,6 +9,7 @@ import { LineChartComponent } from './components/graphs/line-chart/line-chart.co
 import { NgChartsModule } from 'ng2-charts';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     CommonModule,
     IndicadoresRoutingModule,
     NgChartsModule ,
-    MatProgressBarModule
+    MatProgressBarModule,
+    SharedModule
   ]
 })
 export class IndicadoresModule { }
