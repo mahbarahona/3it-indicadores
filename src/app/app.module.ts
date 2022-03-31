@@ -1,5 +1,10 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID,NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+
+
+import localeEsCL from '@angular/common/locales/es-CL';
+registerLocaleData(localeEsCL)
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +22,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     BrowserAnimationsModule, 
     MatProgressBarModule  
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'es-CL' } ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
