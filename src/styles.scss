@@ -35,14 +35,10 @@ li{
 }
 
 .indicadores-header{
-    // background-color: lightcoral;
+
     display: flex;
     flex-direction: column;
-    // align-items: center;
     padding: 1rem;
-    // min-height: 5vh;
-    box-shadow: 0px 0px 3px rgba($color: #000000, $alpha: 0.1);
-    
 }
 .indicadores-header__medida{
     font-size: .8rem;
@@ -56,7 +52,7 @@ li{
 
 }
 .indicador-card__valor{
-    // padding: 1rem 0;
+    
     font-size: 3rem;
     margin: 0;
 
@@ -92,7 +88,6 @@ li{
     height: 85vh;
     box-shadow: inset 0px 0px 2px rgba($color: #000000, $alpha: 0.1);
 
-    // padding: 1rem;
 }
 
 .history__event{
