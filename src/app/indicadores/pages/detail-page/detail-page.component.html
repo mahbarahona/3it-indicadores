@@ -1,10 +1,10 @@
 
-<section class="indicador" *ngIf="indicador">
+<section class="indicador-card" *ngIf="indicador">
 
-    <h2 class="indicador__valor">{{indicador.valor | currency:'CLP' }}</h2>
-    <p class="indicador__nombre">{{indicador.nombre}}</p>
-    <p class="indicador__medida">{{indicador.unidad_medida}}</p>
-    <p class="indicador__fecha">valor actualizado al {{indicador.fecha | date :'shortDate'}}</p>
+    <h2 class="indicador-card__valor">{{indicador.valor | currency:'CLP' }}</h2>
+    <p class="indicador-card__nombre">{{indicador.nombre}}</p>
+    <p class="indicador-card__medida">{{indicador.unidad_medida}}</p>
+    <p class="indicador-card__fecha">valor actualizado al {{indicador.fecha | date :'shortDate'}}</p>
 </section>
 <section >
     <app-line-chart *ngIf="chart" [data]="chart" > </app-line-chart>

@@ -22,3 +22,49 @@ li{
     padding: 1rem;
     border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
 }
+
+.indicador{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.indicador-card{
+    padding: 1rem;
+}
+.indicador-card__valor{
+    padding: 1rem 0;
+    font-size: 3rem;
+
+}
+.indicador-card__nombre{
+    font-size: .8rem;
+}
+.indicador-card__medida{
+    font-size: .6rem;
+    font-weight: bold;
+}
+.indicador-card__fecha{
+    font-size: .6rem;
+}
+
+
+.indicador-header{
+    padding: 1rem;
+
+
+}
+.indicador-header__codigo{
+    text-transform: uppercase;
+}
+.indicador-header__nombre{
+    font-size: .8rem;
+}
+
+.history{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 75vh;
+    padding: 1rem;
+
+}

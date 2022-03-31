@@ -1,14 +1,18 @@
-<h1>Lista indicadores</h1>
-<ng-container  *ngIf="state.indicadores | async   as indicadores">
-    <ul class="list">
-        <li class="indicador" *ngFor="let indicador of indicadores  ">
-            <div>
-                <a [routerLink]="['history',indicador.codigo]" class="indicador__name">{{indicador.codigo}}</a>
-                <p class="indicador__unit">{{indicador.unidad_medida}}</p>
-            </div>
-            <a [routerLink]="['tipo',indicador.codigo]">detail-icon</a>
-    
-        </li>
-    </ul>
-</ng-container>
+
+<section class="indicador-header">
+    <h2 class="indicador-header__title">Indicadores</h2>
+</section>
+
+
+<ul class="list"  *ngIf="state.indicadores | async   as indicadores">
+    <li class="indicador" *ngFor="let indicador of indicadores  ">
+        <div>
+            <a [routerLink]="['history',indicador.codigo]" class="indicador__name">{{indicador.codigo}}</a>
+            <p class="indicador__unit">{{indicador.unidad_medida}}</p>
+        </div>
+        <a [routerLink]="['tipo',indicador.codigo]">detail-icon</a>
+
+    </li>
+</ul>
+
 

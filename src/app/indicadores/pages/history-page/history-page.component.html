@@ -1,6 +1,10 @@
-<ng-container *ngIf="indicador">
-    <h1>{{indicador.tipo}}</h1>
-    <ul *ngIf="indicador.history; else nohistory">
+
+<section class="indicador-header" *ngIf="indicador">
+    <h2 class="indicador-header__codigo">{{indicador.codigo}}</h2>
+    <p class="indicador-header__nombre">{{indicador.nombre}}</p>
+</section>
+<div class="history">
+    <ul *ngIf="indicador?.history; else nohistory">
         <li *ngFor="let i of indicador.history">
             {{i.fecha | date : 'shortDate'}} - {{i.valor | currency}}
         </li>
@@ -8,5 +12,7 @@
     <ng-template #nohistory>
         <p>no results</p>
     </ng-template>
-    
-</ng-container>
+</div>
+
+
+
