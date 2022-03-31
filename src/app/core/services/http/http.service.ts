@@ -6,7 +6,7 @@ import { catchError, of } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpService {
-
+  
   constructor(private http:HttpClient) { }
 
   get(url:string,options?:any){
