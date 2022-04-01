@@ -33,7 +33,7 @@ export class DetailPageComponent implements OnInit {
         this.chart = {
           data:indicador.history.map( (i:any) => i.valor),
           labels:indicador.history.map( (i:any) => {
-            let date = new Date()
+            let date = new Date(i.fecha)
 
             let day = date.getDate()
             let month = date.getMonth() + 1
