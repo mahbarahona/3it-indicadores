@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { concatMap, filter, map, tap } from 'rxjs';
+import { UiService } from 'src/app/ui/ui.service';
 import { IndicadoresActionsService } from '../../actions/indicadores-actions.service';
 import { IndicadoresStateService } from '../../state/indicadores-state.service';
 
@@ -16,6 +17,7 @@ export class HistoryPageComponent implements OnInit {
   constructor(
     private route:ActivatedRoute, 
     public state:IndicadoresStateService,
+    public ui:UiService,
     private actions:IndicadoresActionsService
     ) {
 
